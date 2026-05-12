@@ -14,8 +14,8 @@ JWT_SECRET_KEY = os.getenv(
     "JWT_SECRET_KEY",
     "development-secret-key-change-me-123456",
 )
-VALID_USERNAME = "admin"
-VALID_PASSWORD = "admin123"
+VALID_USERNAME = os.getenv("JWT_ADMIN_USERNAME", "admin")
+VALID_PASSWORD = os.getenv("JWT_ADMIN_PASSWORD", "admin123")
 
 app = FastAPI(title="JWT Web API", version="0.1.0")
 

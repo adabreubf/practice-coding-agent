@@ -83,4 +83,4 @@ docker compose up --build
 
 El servicio quedará expuesto en `http://localhost:8000`.
 
-> Puedes sobrescribir `JWT_SECRET_KEY` en `docker-compose.yml` o en el entorno local para usar una clave propia.
+> Puedes sobrescribir `JWT_SECRET_KEY`, `JWT_ADMIN_USERNAME` y `JWT_ADMIN_PASSWORD` en el entorno local o en Docker para personalizar la configuración.
