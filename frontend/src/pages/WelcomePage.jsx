@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import './WelcomePage.css';
 
 export default function WelcomePage() {
-  const { username, logout } = useAuth();
+  const { username, expiresIn, logout } = useAuth();
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -79,7 +79,7 @@ export default function WelcomePage() {
                 <div className="stat-divider" aria-hidden="true" />
                 <div className="stat-item">
                   <span className="stat-label">Token expires in</span>
-                  <span className="stat-value">300 s</span>
+                  <span className="stat-value">{expiresIn != null ? `${expiresIn} s` : '—'}</span>
                 </div>
               </div>
             </div>
