@@ -5,4 +5,5 @@ services:
     ports:
       - "8000:8000"
     environment:
-      JWT_SECRET_KEY: "development-secret-key-change-me-123456"
+      # Development only: define JWT_SECRET_KEY in your environment or .env for real deployments.
+      JWT_SECRET_KEY: "${JWT_SECRET_KEY:-development-secret-key-change-me-123456}"

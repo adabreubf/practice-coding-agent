@@ -83,7 +83,7 @@ def refresh_token(payload: RefreshRequest) -> TokenResponse:
             detail="Invalid refresh token",
         ) from exc
 
-    if decoded.get("type") != "refresh" or decoded.get("sub") != VALID_USERNAME:
+    if decoded.get("type") != "refresh" or not decoded.get("sub"):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid refresh token",
