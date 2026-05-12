@@ -2,6 +2,7 @@ import logging
 import warnings
 
 from fastapi import FastAPI, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
 from app.auth import (
@@ -38,6 +39,13 @@ app = FastAPI(
     title="JWT Auth API",
     description="FastAPI application demonstrating JWT authentication with login and token refresh.",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://localhost:4173"],
+    allow_methods=["POST", "GET", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 
